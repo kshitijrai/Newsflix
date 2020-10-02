@@ -20,33 +20,26 @@ List<CategoryModel> getCategories() {
 
   //3
   categoryModel = new CategoryModel();
-  categoryModel.categoryName = "General";
-  categoryModel.imageUrl =
-      "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80";
-  category.add(categoryModel);
-
-  //4
-  categoryModel = new CategoryModel();
   categoryModel.categoryName = "Health";
   categoryModel.imageUrl =
       "https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1595&q=80";
   category.add(categoryModel);
 
-  //5
+  //4
   categoryModel = new CategoryModel();
   categoryModel.categoryName = "Science";
   categoryModel.imageUrl =
       "https://images.unsplash.com/photo-1518152006812-edab29b069ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80";
   category.add(categoryModel);
 
-  //6
+  //5
   categoryModel = new CategoryModel();
   categoryModel.categoryName = "Sports";
   categoryModel.imageUrl =
       "https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80";
   category.add(categoryModel);
 
-  //7
+  //6
   categoryModel = new CategoryModel();
   categoryModel.categoryName = "Technology";
   categoryModel.imageUrl =

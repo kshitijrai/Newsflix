@@ -4,6 +4,7 @@ import 'package:Newsflix/models/article_model.dart';
 import 'package:Newsflix/models/category_model.dart';
 import 'package:Newsflix/tile/blogTile.dart';
 import 'package:Newsflix/tile/categoryTile.dart';
+import 'package:Newsflix/views/search.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -41,9 +42,15 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    // String temp;
     return Scaffold(
         appBar: AppBar(
           actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {
+                  showSearch(context: context, delegate: Search());
+                }),
             IconButton(
                 icon: Icon(Theme.of(context).brightness == Brightness.light
                     ? Icons.highlight
@@ -98,7 +105,6 @@ class _HomeState extends State<Home> {
                                 );
                               }),
                         ),
-
                         // Blogs
                         Container(
                           padding: EdgeInsets.only(top: 16),
