@@ -2,6 +2,7 @@ import 'package:Newsflix/helper/datasource.dart';
 import 'package:Newsflix/helper/news.dart';
 import 'package:Newsflix/models/article_model.dart';
 import 'package:Newsflix/models/category_model.dart';
+import 'package:Newsflix/views/articleview.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
@@ -102,6 +103,7 @@ class _HomeState extends State<Home> {
                                 imageUrl: articles[index].urlToImage,
                                 title: articles[index].title,
                                 desc: articles[index].description,
+                                url: articles[index].url,
                               );
                             }),
                       )
@@ -158,41 +160,54 @@ class CategoryTile extends StatelessWidget {
 }
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, desc;
+  final String imageUrl, title, desc, url;
 
   BlogTile(
-      {@required this.imageUrl, @required this.title, @required this.desc});
+      {@required this.imageUrl,
+      @required this.title,
+      @required this.desc,
+      @required this.url});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 16),
-      child: Column(
-        children: <Widget>[
-          ClipRRect(
-              borderRadius: BorderRadius.circular(6),
-              child: CachedNetworkImage(imageUrl: imageUrl)),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ArticleView(
+                      blogUrl: url,
+                    )));
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 16),
+        child: Column(
+          children: <Widget>[
+            ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: CachedNetworkImage(imageUrl: imageUrl)),
+            SizedBox(
+              height: 8,
             ),
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            desc,
-            style: TextStyle(
-              color: Colors.black54,
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 8,
+            ),
+            Text(
+              desc,
+              style: TextStyle(
+                color: Colors.black54,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
