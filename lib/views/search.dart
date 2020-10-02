@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 class Search extends SearchDelegate {
   @override
   ThemeData appBarTheme(BuildContext context) {
-    return ThemeData(
-        primaryColor: Colors.white,
-        brightness: DynamicTheme.of(context).brightness);
+    return ThemeData(brightness: DynamicTheme.of(context).brightness);
   }
 
   @override
